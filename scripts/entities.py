@@ -74,13 +74,13 @@ class PhysicsEntity:
         self.collisions={'UP':False,'DOWN':False,'LEFT':False,'RIGHT':False}
         # print(self.vel[0], movement[0])
     
-        frame_movement = (movement[0] + self.vel[0], movement[1] + self.vel[1])
+        self.frame_movement = (movement[0] + self.vel[0], movement[1] + self.vel[1])
         
                 
         prev_size=self.game.assets[self.type].get_size()
 
         
-        self.pos[0] += frame_movement[0]
+        self.pos[0] += self.frame_movement[0]
         if prev_size[0]!=int(self.size[0]):
             self.update_size((self.size[0],prev_size[1]))
             print(prev_size[0],self.size[0])
@@ -88,18 +88,18 @@ class PhysicsEntity:
         for rect in tilemap.physics_rects_around(entity_rect):
             if entity_rect.colliderect(rect):
                 self.game.count=self.game.jump
-                if frame_movement[0] >= 0:
+                if self.frame_movement[0] >= 0:
                     entity_rect.right = rect.left
                     self.collisions["RIGHT"]=True
                      
-                if frame_movement[0] < 0:
+                if self.frame_movement[0] < 0:
                     entity_rect.left = rect.right
                     self.collisions["LEFT"]=True
                      
                 self.pos[0] = entity_rect.x
                 self.vel[0]=0
                 
-        self.pos[1] += frame_movement[1]
+        self.pos[1] += self.frame_movement[1]
         prev_size=self.game.assets[self.type].get_size()
         if prev_size[1]!=int(self.size[1]):
             self.update_size(self.size)
@@ -110,11 +110,11 @@ class PhysicsEntity:
             if e_rect.colliderect(rect):
                 self.game.count=self.game.jump
                 
-                if frame_movement[1] >= 0:
+                if self.frame_movement[1] >= 0:
                     e_rect.bottom=rect.top
                     self.collisions["DOWN"]=True
                 
-                if frame_movement[1] < 0:
+                if self.frame_movement[1] < 0:
                     e_rect.top=rect.bottom
                     self.collisions["UP"]=True
                 self.pos[1]=e_rect.y

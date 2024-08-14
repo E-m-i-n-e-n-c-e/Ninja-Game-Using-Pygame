@@ -1,4 +1,4 @@
-  
+   
 import pygame as p
 
 class PhysicsEntity:
@@ -25,9 +25,9 @@ class PhysicsEntity:
             self.animation=self.game.assets[self.type+'/'+self.action].copy()
             if(action=='idle'):
                 if(self.flip):
-                    self.anim_offset[0]-=1.1
+                    self.anim_offset[0]=-3.1
                 else:
-                    self.anim_offset[0]+=2
+                    self.anim_offset[0]=-2
 
              
             
@@ -157,7 +157,7 @@ class Player(PhysicsEntity):
             if(self.collisions['DOWN']):
                 self.airtime=0
             if(self.airtime>1):
-                if(movement[0]!=0):
+                if(self.frame_movement[0]!=0):
                     self.set_action('jump')
                     if( self.collisions['RIGHT']):
                         self.anim_offset[0]=-4.5

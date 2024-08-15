@@ -10,7 +10,7 @@ class Editor:
          
         p.init()
 
-        p.display.set_caption("Leviel Editor")
+        p.display.set_caption("Levieel Editor")
 
         icon=p.image.load("data/images/rika.jpg")
         

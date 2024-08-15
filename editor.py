@@ -10,7 +10,7 @@ class Editor:
          
         p.init()
 
-        p.display.set_caption("Level Editor")
+        p.display.set_caption("Leviel Editor")
 
         icon=p.image.load("data/images/rika.jpg")
         
@@ -76,7 +76,7 @@ class Editor:
             self.clock.tick(60) 
             
             
-          
+            
             for event in p.event.get():
                 if event.type==p.QUIT:
                     p.quit()

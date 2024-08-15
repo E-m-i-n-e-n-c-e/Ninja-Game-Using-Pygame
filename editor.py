@@ -100,7 +100,14 @@ class Editor:
                             self.tile_variant=0
                         else:
                             self.tile_variant=(self.tile_variant-1)%len(self.assets[self.tile_list[self.tile_group]])
-
+                
+                if event.type==p.MOUSEBUTTONDOWN:
+                    if event.button==1:
+                        self.left_click=False
+                    if event.button==2:
+                        self.middle_click=False
+                    if event.button==3:
+                        self.right_click=False
                 
                 if event.type==p.KEYDOWN:
                     if (event.key==p.K_w or event.key==p.K_UP) :

@@ -13,7 +13,7 @@ class Game:
 
         p.display.set_caption("Ninja Game")
 
-        icon=p.image.load("rika.jpg")
+        icon=p.image.load("data/images/rika.jpg")
         
         p.display.set_icon(icon)
 
@@ -54,6 +54,7 @@ class Game:
         self.scroll=[0,0]
         self.clouds=Clouds(self.assets['clouds'])
         self.tick=60
+        
     
     def run(self):
         while True:

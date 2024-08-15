@@ -76,7 +76,7 @@ class Editor:
             self.clock.tick(60) 
             
             
-          
+            print("hello")
             for event in p.event.get():
                 if event.type==p.QUIT:
                     p.quit()

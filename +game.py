@@ -123,7 +123,6 @@ class Game:
                     if  event.key==p.K_RETURN:
                         self.tick=60
                     
-                        
 
                  
                  
